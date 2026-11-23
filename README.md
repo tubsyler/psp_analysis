@@ -2,7 +2,7 @@
 
 Analysis code for the revised manuscript on pancreatic stone protein (PSP/REG1a) in the paediatric intensive care unit (PICU), submitted to the *European Journal of Pediatrics*.
 
-All analyses were re-run from scratch in Python on the corrected dataset. This repository contains the code only. 
+All analyses were re-run from scratch in Python on the corrected dataset. This repository contains the code only. The de-identified dataset is available from the corresponding author on reasonable request, within the limits of the ethics approval.
 
 ## Contents
 
@@ -19,7 +19,7 @@ All analyses were re-run from scratch in Python on the corrected dataset. This r
 2. Place `psp_data.xlsx` (sheets `Analiz_Tablosu`, `Kontroller`) in the working directory. For step 14, also place the raw plate file `Sunred_REG1a_240606.xlsx`.
 3. Run the cells in order. Each step prints its result and writes CSV and PNG files to `outputs/<step>/`. The last cell zips the outputs.
 
-Random seed: 42 (bootstrap and cross-validation). Python and package versions are listed in `requirements.txt`.
+Random seed: 42 (bootstrap and cross-validation). Python and package versions are listed in `requirements.txt`. Python: 3.13.18
 
 ## Steps and the reviewer comments they address
 
@@ -40,7 +40,7 @@ Random seed: 42 (bootstrap and cross-validation). Python and package versions ar
 | 12 | Time from sampling to death; sampling time by source of admission | Comment 2 |
 | 13 | Culture sites and organism groups | Minor 6 |
 | 14 | Plate quality: standard curve fit, back-calculated recovery, samples outside the standard range | Comment 1 |
-
+| 15 | Saves Python and package versions to requirements.txt | Reproducibility |
 ## Assay quality (step 14)
 
 The PSP concentrations were measured with a research-use-only sandwich ELISA kit (Human REG1a ELISA Kit, catalogue no. 201-12-2476, lot 202605). All samples were run once, in single wells, on one plate, without dilution.
@@ -67,5 +67,4 @@ Manuscript under revision at European Journal of Pediatrics.
 
 ## Licence
 
-MIT.# psp_analysis
-psp paper
+MIT.
