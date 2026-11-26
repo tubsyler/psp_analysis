@@ -1,83 +1,83 @@
 # Data dictionary
 
-Columns of the `Analiz_Tablosu` sheet (patients, n=56) and the `Kontroller` sheet (controls, n=20). Descriptions are in Turkish, as in the source file.
+Columns of the `Analiz_Tablosu` sheet (patients, n=56) and the `Kontroller` sheet (controls, n=20). Column and sheet names are in Turkish, as in the source file, because the code reads them by name.
 
-## Analiz_Tablosu (patients)
+## `Analiz_Tablosu` (patients)
 
 | Column | Description | Unit | Coding / note |
 |---|---|---|---|
-| satir_no | Hasta sırası (1–56). Plaka sırası ve ana Excel satırıyla aynı (ana Excel satırı = satir_no + 1). | sayı |  |
-| yas_ay | Yaş, doğum tarihi ve YBÜ yatış tarihinden hesaplandı | ay |  |
-| yas_yil | yas_ay / 12 | yıl |  |
-| cinsiyet_0K_1E | Cinsiyet |  | 0 kadın, 1 erkek |
-| yatis_tani_kodu | YBÜ yatış tanısı grubu |  | 1 sol., 2 nöro, 3 travma, 4 enfeksiyon, 5 GİS, 6 postop, 7 hemato-onko, 8 intoksikasyon, 9 renal |
-| altta_yatan_var_ana_excel | Ana Excel'deki altta yatan hastalık işareti (düzeltme öncesi) |  | 0 yok, 1 var. Analizde kullanılmaz. |
-| altta_yatan_tur_ham | Ana Excel'deki altta yatan hastalık türü (karışık kod ve metin) |  | Analizde kullanılmaz, altta_yatan_grup kullanılır |
-| PICU_yatis_gun | YBÜ yatış süresi (çıkış tarihi − yatış tarihi) | gün |  |
-| yatistan_ornekleme_gun | YBÜ yatışından PSP örnek tarihine kadar geçen süre | gün | 0 = yatış günü |
-| ornekten_olume_gun | PSP örneğinden ölüme kadar süre | gün | Yalnızca ölenlerde dolu |
-| sonuc_kodu_0exitus_1taburcu_2devam | Ana Excel sonuç kodu (güncel) |  | 0 exitus, 1 taburcu (sağ). 2 devam kalmadı. |
-| sonlanim_analiz_0exitus_1sag | Analizde kullanılan sonlanım |  | 0 exitus, 1 sağ |
-| IMV | İnvaziv mekanik ventilasyon |  | 0 yok, 1 var |
-| ECMO | ECMO kullanımı |  | 0 yok, 1 var |
-| CRRT | CRRT kullanımı |  | 0 yok, 1 var |
-| plazmaferez | Plazmaferez |  | 0 yok, 1 var |
-| CVK | Santral venöz kateter |  | 0 yok, 1 var |
-| kan_tx | Kan transfüzyonu |  | 0 yok, 1 var |
-| PSS | Phoenix Sepsis Skoru (MDCalc ile hesaplandı) | puan | ≥2 = sepsis |
-| PRISM3 | PRISM-III | puan | PSP gününde hesaplandı |
-| PELOD2 | PELOD-2 | puan | PSP gününde hesaplandı |
-| CODS | CODS puanı (ana Excel). Analizde kullanılmaz. | puan | Tanım ana Excel'den |
-| WBC | Beyaz küre | /µL |  |
-| NEU | Nötrofil | /µL |  |
-| HB | Hemoglobin | g/dL |  |
-| PLT | Trombosit | ×10³/µL |  |
-| BUN | BUN | mg/dL |  |
-| Krea | Kreatinin | mg/dL | K sütunuyla karıştırılmıştı, düzeltildi |
-| AST | AST | U/L |  |
-| ALT | ALT | U/L |  |
+| satir_no | Patient order (1–56). Same as plate order and main Excel row (main Excel row = satir_no + 1). | number |  |
+| yas_ay | Age, calculated from date of birth and PICU admission date | months |  |
+| yas_yil | yas_ay / 12 | years |  |
+| cinsiyet_0K_1E | Sex |  | 0 female, 1 male |
+| yatis_tani_kodu | PICU admission diagnosis group |  | 1 respiratory, 2 neurological, 3 trauma, 4 infection, 5 gastrointestinal, 6 postoperative, 7 hemato-oncological, 8 intoxication, 9 renal |
+| altta_yatan_var_ana_excel | Underlying disease flag in the main Excel file (before correction) |  | 0 no, 1 yes. Not used in the analysis. |
+| altta_yatan_tur_ham | Underlying disease type in the main Excel file (mixed codes and text) |  | Not used; altta_yatan_grup is used instead |
+| PICU_yatis_gun | PICU length of stay (discharge date − admission date) | days |  |
+| yatistan_ornekleme_gun | Time from PICU admission to PSP sampling date | days | 0 = day of admission |
+| ornekten_olume_gun | Time from PSP sampling to death | days | Filled only for patients who died |
+| sonuc_kodu_0exitus_1taburcu_2devam | Outcome code in the main Excel file (updated) |  | 0 died, 1 discharged alive. No patient is coded 2 (still admitted). |
+| sonlanim_analiz_0exitus_1sag | Outcome used in the analysis |  | 0 died, 1 survived |
+| IMV | Invasive mechanical ventilation |  | 0 no, 1 yes |
+| ECMO | Extracorporeal membrane oxygenation |  | 0 no, 1 yes |
+| CRRT | Continuous renal replacement therapy |  | 0 no, 1 yes |
+| plazmaferez | Plasmapheresis |  | 0 no, 1 yes |
+| CVK | Central venous catheter |  | 0 no, 1 yes |
+| kan_tx | Blood transfusion |  | 0 no, 1 yes |
+| PSS | Phoenix Sepsis Score (calculated with MDCalc) | points | ≥2 = sepsis |
+| PRISM3 | PRISM-III | points | Calculated on the day of PSP sampling |
+| PELOD2 | PELOD-2 | points | Calculated on the day of PSP sampling |
+| CODS | CODS score (main Excel file). Not used in the analysis. | points | Definition as in the main Excel file |
+| WBC | White blood cell count | /µL |  |
+| NEU | Neutrophil count | /µL |  |
+| HB | Haemoglobin | g/dL |  |
+| PLT | Platelet count | ×10³/µL |  |
+| BUN | Blood urea nitrogen | mg/dL |  |
+| Krea | Creatinine | mg/dL | Had been mixed up with the K column; corrected |
+| AST | Aspartate aminotransferase | U/L |  |
+| ALT | Alanine aminotransferase | U/L |  |
 | TBIL | Total bilirubin | mg/dL |  |
-| Laktat | Laktat | mmol/L |  |
-| Albümin | Albümin | g/dL |  |
-| UA | Ürik asit | mg/dL | Analizde kullanılmaz. |
-| NA | Sodyum | mmol/L |  |
-| K | Potasyum (ana Excel'den yeniden alındı) | mmol/L | Önceki tabloda kreatininin kopyasıydı |
-| CA | Kalsiyum | mg/dL |  |
-| INR | INR |  |  |
-| CRP | CRP | mg/L |  |
-| PCT | Prokalsitonin | ng/mL | 100 iki hastada, ölçüm tavanı olabilir |
-| PSP_ng_mL | Pankreatik taş proteini (Sunred REG1a ELISA) | ng/mL | Plakada 4 ng/mL üstü 6 hasta ekstrapole |
-| sepsis_PSS | Sepsis (Phoenix, PSS ≥ 2) |  | 0 yok, 1 var |
-| inotrop | Vazoaktif/inotrop ihtiyacı |  | 0 yok, 1 var |
-| septik_sok_duzeltilmis | Septik şok (Phoenix: sepsis + kardiyovasküler puan; inotrop veya laktat > 5) |  | 0 yok, 1 var |
-| septik_sok_PSS_arac | Septik şok, hesaplama aracının çıktısı |  | Araç 2 hastada laktat > 5 durumunu şok saymadı |
-| ab_ornekten_once_basladi | Antibiyotik PSP örneğinden önce başladı mı |  | 0 hayır, 1 evet |
-| PICU_kaynakli_vekil_ornek_gt2gun | YBÜ kaynaklı vekil: örnekleme YBÜ yatışından > 2 gün sonra |  | 0 hayır, 1 evet |
-| kaynak_1toplum_2hastane | Geliş kaynağı |  | 1 toplum, 2 hastane/YBÜ |
-| sepsis_suphesi | Sepsis şüphesi (ana Excel) |  | 0 yok, 1 var |
-| kanitlanmis_sepsis | Kanıtlanmış sepsis (ana Excel) |  | 0 yok, 1 var |
-| kulturde_ureme | Herhangi bir kültürde üreme |  | 0 yok, 1 var |
-| kan_kulturu_ureme | Kan kültüründe üreme |  | 0 yok, 1 var |
-| kateter_kulturu_ureme | Kateter kültüründe üreme |  | 0 yok, 1 var |
-| tak_kulturu_ureme | Trakeal aspirat kültüründe üreme |  | 0 yok, 1 var. Kısaltma ana Excel'de "TAK" |
-| baska_kultur_ureme | Başka kültürde üreme |  | 0 yok, 1 var |
-| mikroorganizma | Üreyen mikroorganizma (metin) |  | 0 = üreme yok |
-| PSP_ust_standart_ustu | PSP en yüksek standardın (4 ng/mL) üstünde, ekstrapole |  | 0 hayır, 1 evet |
-| yatis_tanisi_yazili | Yazılı yatış tanısı |  |  |
-| altta_yatan_yazili | Yazılı altta yatan hastalık |  |  |
-| bobrek_hastaligi | Kronik böbrek hastalığı |  | 0 yok, 1 var (1 hasta) |
-| pankreas_hastaligi | Pankreas hastalığı |  | Dışlama kriteri, hepsi 0 |
-| gis_hastaligi | GİS hastalığı |  | Dışlama kriteri, hepsi 0 |
-| altta_yatan_var | Kronik/altta yatan hastalık var mı (yazılı tanıya göre, analizde kullanılan) |  | 0 yok, 1 var (44/56) |
-| altta_yatan_grup | Altta yatan hastalık grubu |  | Yok, Nörolojik, Kardiyak, Hemato-onkolojik, İmmünolojik, Genetik, Romatolojik, Renal |
+| Laktat | Lactate | mmol/L |  |
+| Albümin | Albumin | g/dL |  |
+| UA | Uric acid | mg/dL | Not used in the analysis. |
+| NA | Sodium | mmol/L |  |
+| K | Potassium (re-extracted from the main Excel file) | mmol/L | Was a copy of creatinine in the previous table |
+| CA | Calcium | mg/dL |  |
+| INR | International normalized ratio |  |  |
+| CRP | C-reactive protein | mg/L |  |
+| PCT | Procalcitonin | ng/mL | Value of 100 in two patients; may be the assay ceiling |
+| PSP_ng_mL | Pancreatic stone protein (Sunred REG1a ELISA) | ng/mL | 6 patients above 4 ng/mL on the plate were extrapolated |
+| sepsis_PSS | Sepsis (Phoenix, PSS ≥ 2) |  | 0 no, 1 yes |
+| inotrop | Need for vasoactive/inotropic drugs |  | 0 no, 1 yes |
+| septik_sok_duzeltilmis | Septic shock (Phoenix: sepsis + cardiovascular points; inotrope or lactate > 5) |  | 0 no, 1 yes |
+| septik_sok_PSS_arac | Septic shock, output of the calculation tool |  | The tool did not count lactate > 5 as shock in 2 patients |
+| ab_ornekten_once_basladi | Antibiotics started before PSP sampling |  | 0 no, 1 yes |
+| PICU_kaynakli_vekil_ornek_gt2gun | Proxy for PICU-acquired: sampled more than 2 days after PICU admission |  | 0 no, 1 yes |
+| kaynak_1toplum_2hastane | Source of admission |  | 1 community, 2 hospital/PICU |
+| sepsis_suphesi | Suspected sepsis (main Excel file) |  | 0 no, 1 yes |
+| kanitlanmis_sepsis | Proven sepsis (main Excel file) |  | 0 no, 1 yes |
+| kulturde_ureme | Growth in any culture |  | 0 no, 1 yes |
+| kan_kulturu_ureme | Growth in blood culture |  | 0 no, 1 yes |
+| kateter_kulturu_ureme | Growth in catheter culture |  | 0 no, 1 yes |
+| tak_kulturu_ureme | Growth in tracheal aspirate culture |  | 0 no, 1 yes. "TAK" is the abbreviation used in the main Excel file |
+| baska_kultur_ureme | Growth in another culture |  | 0 no, 1 yes |
+| mikroorganizma | Microorganism grown (free text, in Turkish) |  | 0 = no growth |
+| PSP_ust_standart_ustu | PSP above the highest standard (4 ng/mL), extrapolated |  | 0 no, 1 yes |
+| yatis_tanisi_yazili | Admission diagnosis (free text, in Turkish) |  |  |
+| altta_yatan_yazili | Underlying disease (free text, in Turkish) |  |  |
+| bobrek_hastaligi | Chronic kidney disease |  | 0 no, 1 yes (1 patient) |
+| pankreas_hastaligi | Pancreatic disease |  | Exclusion criterion; all 0 |
+| gis_hastaligi | Gastrointestinal disease |  | Exclusion criterion; all 0 |
+| altta_yatan_var | Chronic/underlying disease present (from written diagnosis; used in the analysis) |  | 0 no, 1 yes (44/56) |
+| altta_yatan_grup | Underlying disease group |  | Values as stored: Yok (none), Nörolojik (neurological), Kardiyak (cardiac), Hemato-onkolojik (hemato-oncological), İmmünolojik (immunological), Genetik (genetic), Romatolojik (rheumatological), Renal (renal) |
 
-## Kontroller (healthy controls)
+## `Kontroller` (healthy controls)
 
 | Column | Description | Unit | Coding / note |
 |---|---|---|---|
-| SMP_no_plaka | Plakadaki numune numarası |  |  |
-| cinsiyet_0K_1E | Cinsiyet |  | 0 kadın, 1 erkek |
-| yas_yil | Yaş | yıl |  |
-| PSP_ng_mL_form | PSP, veri formundaki değer. Analizde kullanılan değer. | ng/mL |  |
-| PSP_ng_mL_plaka | PSP, plaka okumasından hesaplanan değer | ng/mL | Kontrol amaçlı |
-| fark_yuzde | Form ve plaka değeri arasındaki fark: (form − plaka) / plaka × 100 | % | Excel formülü |
+| SMP_no_plaka | Sample number on the plate |  |  |
+| cinsiyet_0K_1E | Sex |  | 0 female, 1 male |
+| yas_yil | Age | years |  |
+| PSP_ng_mL_form | PSP value on the data form. Used in the analysis. | ng/mL |  |
+| PSP_ng_mL_plaka | PSP value calculated from the plate reading | ng/mL | For checking only |
+| fark_yuzde | Difference between form and plate values: (form − plate) / plate × 100 | % | Excel formula |

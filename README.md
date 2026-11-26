@@ -20,7 +20,7 @@ All analyses were re-run from scratch in Python on the corrected dataset. This r
 2. Place `psp_data.xlsx` (sheets `Analiz_Tablosu`, `Kontroller`) in the working directory. For step 14, also place the raw plate file `Sunred_REG1a_240606.xlsx`. Without it, step 14 is skipped.
 3. Run the cells in order. Each step prints its result and writes CSV and PNG files to `outputs/<step>/`. The last cell zips the outputs.
 
-Random seed: 42 (bootstrap and cross-validation). Python and package versions are listed in `requirements.txt`. Python: 3.13.18
+Random seed: 42 (bootstrap and cross-validation). Package versions are listed in `requirements.txt`. Python 3.13.18 was used.
 
 ## Steps and the reviewer comments they address
 
@@ -28,10 +28,10 @@ Random seed: 42 (bootstrap and cross-validation). Python and package versions ar
 |---|---|---|
 | 00 | Data checks: missing values, ranges, logical consistency, duplicate PSP values | General |
 | 01 | Normality (Shapiro-Wilk, raw and log2) | Minor 7 |
-| 02 | Descriptive statistics (Table 1): septic vs non-septic, died vs survived, patients vs controls | General |
+| 02 | Descriptive statistics (Table 1): septic vs non-septic, died vs survived, patients vs controls | General, Comment 7 |
 | 03 | PSP and age: scatter plot, Spearman correlation, age-adjusted logistic models, likelihood-ratio test | Comment 3 |
-| 04 | Pairwise comparisons of PSP, PCT and CRP (Mann-Whitney; Kruskal-Wallis with Bonferroni for three groups) | General |
-| 05 | AUCs with 95% CI (DeLong and bootstrap), ROC curves. Circular indicators (Phoenix, PELOD-2 for sepsis) are flagged. Smallest AUC detectable with 80% power (Hanley-McNeil). | Comment 5 |
+| 04 | Pairwise comparisons of PSP, PCT and CRP (Mann-Whitney; Kruskal-Wallis with Bonferroni for three groups) | Minor 2 |
+| 05 | AUCs with 95% CI (DeLong and bootstrap), ROC curves. Circular indicators (Phoenix, PELOD-2 for sepsis) are flagged. Smallest AUC detectable with 80% power (Hanley-McNeil). | Comments 4 and 5 |
 | 06 | Formal test of AUC differences (DeLong and paired bootstrap) | Comment 6 |
 | 07 | Kidney function and PSP: correlations, CRRT, sensitivity analysis | Comment 8 |
 | 08 | Logistic regression (log2-transformed, univariable and age-adjusted), including BUN | Comment 9 |
@@ -41,7 +41,7 @@ Random seed: 42 (bootstrap and cross-validation). Python and package versions ar
 | 12 | Time from sampling to death; sampling time by source of admission | Comment 2 |
 | 13 | Culture sites and organism groups | Minor 6 |
 | 14 | Plate quality: standard curve fit, back-calculated recovery, samples outside the standard range | Comment 1 |
-| 15 | Manuscript figures 1 to 3 (flow diagram, ROC curves, PSP and age). Screening counts in the flow diagram are entered by hand. | General |
+| 15 | Manuscript figures 1 to 3 (flow diagram, ROC curves, PSP and age). Screening counts in the flow diagram are entered by hand. | Comment 3, Minor 1 |
 | 16 | Admission diagnoses of non-septic patients | STARD item 21b |
 | 17 | Saves Python and package versions to requirements.txt | Reproducibility |
 ## Assay quality (step 14)
